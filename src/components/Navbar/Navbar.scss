@@ -1,0 +1,36 @@
+.navbar {
+  height: 6vh;
+  position: sticky;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #274573;
+  border-bottom: 1px solid #495A73;
+  padding: 0 20px;
+  top: 0;
+  transition: all .7s ease-in;
+
+  &__logo {
+    color: #5293F2;
+    font-size: 1.65rem;
+  }
+
+  &__link-container {
+  display: none;
+    transition: all .7s ease-in;
+    &__link{
+      text-decoration: none;
+      color: #495A73;
+    }
+    @media (min-width: 660px) {
+      height: auto;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 365px;
+    }
+  }
+}
