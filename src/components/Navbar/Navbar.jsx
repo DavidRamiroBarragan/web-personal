@@ -1,22 +1,20 @@
-import React from "react"
+import React, { useState } from "react"
 import "./Navbar.scss"
+import LinkContainer from "./Linkcontainer/LinkContainer"
+import { GiHamburgerMenu } from "react-icons/all"
+import Sidebar from "../Sidebar/Sidebar"
 
 const Navbar = () => {
+  const [openModal, setOpenModal] = useState(false)
   return (
-    <nav className="navbar">
-      <h1 className="navbar__logo">David Ramiro</h1>
-      <div className="navbar__link-container">
-        <a href="#" className="navbar__link-container__link">
-          Portfolio
-        </a>
-        <a href="#" className="navbar__link-container__link">
-          Sobre davidramiro.com
-        </a>
-        <a href="#" className="navbar__link-container__link">
-          Sobre mi
-        </a>
-      </div>
-    </nav>
+    <>
+      <nav className="navbar">
+        <h1 className="navbar__logo">David Ramiro</h1>
+        <GiHamburgerMenu size="1.65rem" onClick={() => setOpenModal(true)} />
+        <LinkContainer />
+      </nav>
+      <Sidebar openModal={openModal} setOpenModal={setOpenModal} />
+    </>
   )
 }
 
