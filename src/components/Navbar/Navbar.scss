@@ -17,9 +17,14 @@
     margin: 0;
   }
 
+  &__hamburger-icon{
+    @media (min-width: 660px) {
+      display: none;
+    }
+  }
+
   &__link-container {
   display: none;
-    transition: all .7s ease-in;
     &__link{
       text-decoration: none;
       color: #495A73;

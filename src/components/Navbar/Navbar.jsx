@@ -10,7 +10,11 @@ const Navbar = () => {
     <>
       <nav className="navbar">
         <h1 className="navbar__logo">David Ramiro</h1>
-        <GiHamburgerMenu size="1.65rem" onClick={() => setOpenModal(true)} />
+        <GiHamburgerMenu
+          size="1.65rem"
+          onClick={() => setOpenModal(true)}
+          className="navbar__hamburger-icon"
+        />
         <LinkContainer />
       </nav>
       <Sidebar openModal={openModal} setOpenModal={setOpenModal} />
