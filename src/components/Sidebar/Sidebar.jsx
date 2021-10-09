@@ -2,11 +2,18 @@ import React from "react"
 import Modal from "../UI/Modal/Modal"
 import "./Sidebar.scss"
 import { AiOutlineCloseCircle } from "react-icons/all"
+import { motion } from "framer-motion"
 
 const Sidebar = ({ openModal, setOpenModal }) => {
   return (
     <Modal openModal={openModal} setOpenModal={setOpenModal}>
-      <div className="modal-sidebar">
+      <motion.div
+        initial={{ x: "100%" }}
+        animate={{ x: 0 }}
+        transition={{ type: "spring", bounce: 0, duration: 0.5 }}
+        exit={{ x: "100%" }}
+        className="modal-sidebar"
+      >
         <div className="modal-container__header">
           <button className="modal-container__button">
             <AiOutlineCloseCircle
@@ -26,7 +33,7 @@ const Sidebar = ({ openModal, setOpenModal }) => {
             Sobre mi
           </a>
         </div>
-      </div>
+      </motion.div>
     </Modal>
   )
 }

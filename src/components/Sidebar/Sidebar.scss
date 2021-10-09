@@ -1,29 +1,13 @@
 .modal-sidebar {
-  height: 100%;
-  width: 62vw;
-  background: #FFF;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: flex-end;
   position: fixed;
-  right: 0;
+  background: #FFF;
   top: 0;
+  right: 0;
   bottom: 0;
-  justify-content: flex-start;
-  overflow-y: auto;
-  opacity: 1;
-  transition: opacity 0.25s;
-  -webkit-transition: opacity 0.25s;
 
   &__link-container{
-    height: inherit;
     display: grid;
-    padding-right: 1rem;
-    box-sizing: border-box;
-    justify-items: end;
-    grid-auto-rows: max-content;
-    width: 100%;
+    padding: 0 1rem;
 
     &__link{
       text-decoration: none;
@@ -36,6 +20,9 @@
 }
 
 .modal-container__header{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   .modal-container__button{
     border: none;
     padding: 0.5rem 1rem;
