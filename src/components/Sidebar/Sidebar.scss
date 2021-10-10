@@ -1,32 +1,29 @@
-.modal-sidebar {
+.sidebar {
   position: fixed;
   background: #FFF;
   top: 0;
   right: 0;
   bottom: 0;
 
-  &__link-container{
+  &__header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right: 5%;
+    padding-top: 5%;
+
+    &__button{
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+
+  }
+
+  &__container{
     display: grid;
     padding: 0 1rem;
-
-    &__link{
-      text-decoration: none;
-      color: #495A73;
-      width: 100%;
-      padding: 0.25rem 0;
-      text-align: right;
-    }
   }
-}
-
-.modal-container__header{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  .modal-container__button{
-    border: none;
-    padding: 0.5rem 1rem;
-    background-color: #FFFFFF;
-  }
-
 }

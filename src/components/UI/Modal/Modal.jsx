@@ -1,41 +1,27 @@
 import React from "react"
-import ReactDOM from "react-dom"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion"
 import "./Modal.scss"
 
 const Modal = ({ openModal, children }) => {
-  const variants = {
-    visible: {
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        duration: 1,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      transition: {
-        when: "afterChildren",
-        duration: 1,
-      },
-    },
-  }
-  return openModal
-    ? ReactDOM.createPortal(
-        <AnimatePresence>
+  return (
+    <AnimateSharedLayout type="crossfade">
+      <AnimatePresence exitBeforeEnter>
+        {openModal && (
           <motion.div
-            key="modal"
+            layoutId="modal"
             className="modal"
-            variants={variants}
-            initial="visible"
-            exit="hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ type: "spring", bounce: 0, duration: 1 }}
+            exit={{ opacity: 0 }}
+            layout
           >
             {children}
           </motion.div>
-        </AnimatePresence>,
-        document.getElementById("modal-root")
-      )
-    : null
+        )}
+      </AnimatePresence>
+    </AnimateSharedLayout>
+  )
 }
 
 export default Modal

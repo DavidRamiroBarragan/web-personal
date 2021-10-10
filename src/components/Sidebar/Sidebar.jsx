@@ -1,38 +1,25 @@
 import React from "react"
 import Modal from "../UI/Modal/Modal"
 import "./Sidebar.scss"
-import { AiOutlineCloseCircle } from "react-icons/all"
 import { motion } from "framer-motion"
+import { AiOutlineClose } from "react-icons/all"
 
-const Sidebar = ({ openModal, setOpenModal }) => {
+const Sidebar = ({ children, openModal, onClickHandler }) => {
   return (
-    <Modal openModal={openModal} setOpenModal={setOpenModal}>
+    <Modal openModal={openModal}>
       <motion.div
         initial={{ x: "100%" }}
         animate={{ x: 0 }}
-        transition={{ type: "spring", bounce: 0, duration: 0.5 }}
+        transition={{ type: "spring", bounce: 0, duration: 1 }}
         exit={{ x: "100%" }}
-        className="modal-sidebar"
+        className="sidebar"
       >
-        <div className="modal-container__header">
-          <button className="modal-container__button">
-            <AiOutlineCloseCircle
-              size="1.65rem"
-              onClick={() => setOpenModal((current) => !current)}
-            />
+        <div className="sidebar__header">
+          <button className="sidebar__header__button">
+            <AiOutlineClose size="1.65rem" onClick={onClickHandler} />
           </button>
         </div>
-        <div className="modal-sidebar__link-container">
-          <a href="#" className="modal-sidebar__link-container__link">
-            Portfolio
-          </a>
-          <a href="#" className="modal-sidebar__link-container__link">
-            Sobre davidramiro.com
-          </a>
-          <a href="#" className="modal-sidebar__link-container__link">
-            Sobre mi
-          </a>
-        </div>
+        <div className="sidebar__container">{children}</div>
       </motion.div>
     </Modal>
   )

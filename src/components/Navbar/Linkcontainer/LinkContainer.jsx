@@ -1,16 +1,20 @@
-function LinkContainer() {
+import { Link } from "react-router-dom"
+import "./LinkContainer.scss"
+import classNames from "classnames"
+
+function LinkContainer({ closeModalHandler, openModal }) {
   return (
-    <div className="navbar__link-container">
-      <a href="#" className="navbar__link-container__link">
-        Portfolio
-      </a>
-      <a href="#" className="navbar__link-container__link">
-        Sobre davidramiro.com
-      </a>
-      <a href="#" className="navbar__link-container__link">
-        Sobre mi
-      </a>
-    </div>
+    <ul className={classNames("link-container", { "nav-bar": !openModal })}>
+      <li onClick={closeModalHandler} className="link-container__link">
+        <Link to="/portfolio">Portfolio</Link>
+      </li>
+      <li onClick={closeModalHandler} className="link-container__link">
+        <Link to="/about-page">Sobre davidramiro.com</Link>
+      </li>
+      <li onClick={closeModalHandler} className="link-container__link">
+        <Link to="/about-me">Sobre mi</Link>
+      </li>
+    </ul>
   )
 }
 
